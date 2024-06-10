@@ -14,5 +14,7 @@ namespace MVC_LOGIN_AND_REGISTER.Models
 
         public string Username { get; set; }
         public string Password { get; set; }
+
+
     }
 }

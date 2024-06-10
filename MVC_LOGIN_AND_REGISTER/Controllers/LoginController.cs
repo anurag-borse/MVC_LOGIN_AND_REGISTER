@@ -40,8 +40,6 @@ namespace MVC_LOGIN_AND_REGISTER.Controllers
             {
                 return RedirectToAction("Login");
             }
-
-
         }
 
         [HttpGet]

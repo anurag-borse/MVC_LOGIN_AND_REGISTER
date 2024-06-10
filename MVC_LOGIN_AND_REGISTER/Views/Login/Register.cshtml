@@ -6,21 +6,19 @@
 
 <h2>Register</h2>
 
-
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>User</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
         <div class="form-group">
             @Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-            
-                <input type="text" name="Username" />
-
+                <input type="text" name="Username" class="form-control" />
                 @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -28,14 +26,62 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-
-
-                <input type="password" name="Password" />
-
-
-
-
+                <input type="password" name="Password" class="form-control" />
                 @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Emp name", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="text" name="EmpName" class="form-control" />
+                @Html.ValidationMessage("EmpName", "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Roll", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("Roll", new SelectList(new List<string>
+                {
+                    "Roll 1", "Roll 2", "Roll 3"
+                }), "Select Roll", new { @class = "form-control", name = "Roll" })
+                @Html.ValidationMessage("Roll", "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Dept", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("Dept", new SelectList(new List<string>
+                {
+                    "Dept 1", "Dept 2", "Dept 3"
+                }), "Select Dept", new { @class = "form-control", name = "Dept" })
+                @Html.ValidationMessage("Dept", "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Desg.", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("Desg", new SelectList(new List<string>
+                {
+                    "Desg 1", "Desg 2", "Desg 3"
+                }), "Select Desg", new { @class = "form-control", name = "Desg" })
+                @Html.ValidationMessage("Desg", "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Gender", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <label class="radio-inline">
+                    <input type="radio" name="Gender" value="Male" /> Male
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="Gender" value="Female" /> Female
+                </label>
+                @Html.ValidationMessage("Gender", "", new { @class = "text-danger" })
             </div>
         </div>
 
